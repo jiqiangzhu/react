@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>表单</title>
+    <script src="build/react.development.js"></script>
+    <script src="build/react-dom.development.js"></script>
+    <script src="build/babel.min.js"></script>
+</head>
+
+<body>
+    <!-- 用户在表单填入的内容，属于用户跟组件的互动，所以不能用this.props读取
+        定义一个onChange事件的回调函数
+    -->
+    <div id="example"></div>
+    <script type="text/babel">
+        class InputTest extends React.Component {
+            constructor(props) {
+                super(props)
+                this.state = {
+                    value : 'Hello'
+                }
+            }
+            handleChange() {
+                this.setState({
+                    value: event.target.value
+                })
+            }
+            render() {
+                
+                let value = this.state.value;
+                return (
+                    <div>
+                        
+                        <input type="text" value={value} onChange={this.handleChange} />
+                        <p>{value}</p>
+                    </div>
+                )
+            }
+        }
+        ReactDOM.render(
+            <InputTest />,
+            document.getElementById("example")
+        )
+    </script>
+</body>
+
+</html>

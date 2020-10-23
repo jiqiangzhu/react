@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +9,7 @@
     <script src="build/react-dom.development.js"></script>
     <script src="build/babel.min.js"></script>
 </head>
+
 <body>
     <div id="example"></div>
     <script type="text/babel">
@@ -15,7 +17,7 @@
         ReactDOM.render(
             <div>
                 {
-                    names.map(function(name, index) {
+                    names.map(function (name, index) {
                         return <div key={index}> Hello, {name} !</div>
                     })
                 }
@@ -24,4 +26,5 @@
         );
     </script>
 </body>
+
 </html>

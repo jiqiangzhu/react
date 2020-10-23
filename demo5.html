@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React.Children.map</title>
+    <script src="build/react.development.js"></script>
+    <script src="build/react-dom.development.js"></script>
+    <script src="build/babel.min.js"></script>
+</head>
+
+<body>
+    <div id="example"></div>
+    <script type="text/babel">
+
+        // class NotesList extends React.Component {
+        //     render() {
+        //         return (
+        //             <ol>
+        //                 {
+        //                     React.Children.map(this.props.children, function (child) {
+        //                         return <li>{child}</li>;
+        //                     })
+        //                 }
+        //             </ol>
+        //         );
+        //     }
+        // }
+        // ReactDOM.render(
+        //     <NotesList>
+        //         <span>hello</span>
+        //         <span>world</span>
+        //     </NotesList>,
+        //     document.getElementById("example")
+            
+        // );
+
+        class NoteList extends React.Component {
+            render() {
+                return (
+                    <ol>
+                        {   //React.Children.map方法处理this.props.children不用担心值类型
+                            React.Children.map(this.props.children, function(child){
+                                return <li>{child}</li>;
+                            })
+                        }
+                    </ol>
+                );
+            }
+        }
+
+        ReactDOM.render(
+            <NoteList>
+                <span>小王</span>
+                <span>小刘</span>
+            </NoteList>,
+            document.getElementById("example")
+        );
+
+
+
+    </script>
+</body>
+
+</html>
